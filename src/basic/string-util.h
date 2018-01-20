@@ -24,6 +24,15 @@
 #include <stddef.h>
 #include <string.h>
 
+#ifndef strndupa
+#define strndupa(s, n) \
+       (__extension__ ({const char *__in = (s);                    \
+                        size_t __len = strnlen (__in, (n)) + 1;    \
+                        char *__out = (char *) alloca (__len);     \
+                        __out[__len-1] = '\0';                     \
+                        (char *) memcpy (__out, __in, __len-1);}))
+#endif
+
 #include "macro.h"
 
 /* What is interpreted as whitespace? */
