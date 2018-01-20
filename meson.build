@@ -523,7 +523,9 @@ m4 = find_program('m4')
 stat = find_program('stat')
 git = find_program('git', required : false)
 
-meson_make_symlink = meson.source_root() + '/tools/meson-make-symlink.sh'
+#if 0 // unneeded by elogind
+# meson_make_symlink = meson.source_root() + '/tools/meson-make-symlink.sh'
+#endif // 0
 #if 1 /// Needed by elogind
 meson_symlink_headers = meson.source_root() + '/tools/meson-symlink_headers.sh'
 #endif // 1
@@ -570,9 +572,11 @@ foreach prog : progs
         substs.set(name, path)
 endforeach
 
-if run_command('ln', '--relative', '--help').returncode() != 0
-        error('ln does not support --relative')
-endif
+#if 0 // unneeded by elogind
+# if run_command('ln', '--relative', '--help').returncode() != 0
+#         error('ln does not support --relative')
+# endif
+#endif //0
 
 ############################################################
 
