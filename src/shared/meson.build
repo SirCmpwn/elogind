@@ -165,7 +165,8 @@ libshared_name = 'elogind-shared-@0@'.format(meson.project_version())
 libshared_deps = [threads,
                   libacl,
                   libcap,
-                  libselinux]
+                  libselinux,
+                  libintl]
 #endif // 0
 
 libshared_sym_path = '@0@/libshared.sym'.format(meson.current_source_dir())

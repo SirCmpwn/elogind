@@ -434,5 +434,6 @@ libbasic = static_library(
 #                         libblkid,
 #endif // 0
                         libselinux,
+                        libintl,
                        ],
         install : false)

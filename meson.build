@@ -767,6 +767,7 @@ librt = cc.find_library('rt')
 libm = cc.find_library('m')
 libdl = cc.find_library('dl')
 libcrypt = cc.find_library('crypt')
+libintl = cc.find_library('intl')
 
 libcap = dependency('libcap', required : false)
 if not libcap.found()
